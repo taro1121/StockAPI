@@ -23,14 +23,14 @@
 
       rows.sort(function(a, b) {
         if (type === "number") {
-          let _a = a.children[col].textContent * 1;
-          let _b = b.children[col].textContent * 1;
+          var _a = a.children[col].textContent * 1;
+          var _b = b.children[col].textContent * 1;
           console.log("number _a is: " + _a );
           console.log("number _b is: " + _b );
         }
         if (type === "string") {
-          let _a = a.children[col].textContent.toLowerCase();
-          let _b = b.children[col].textContent.toLowerCase();
+          var _a = a.children[col].textContent.toLowerCase();
+          var _b = b.children[col].textContent.toLowerCase();
           console.log("string _a is: " + _a );
           console.log("string _b is: " + _b );
         }
