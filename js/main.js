@@ -1,7 +1,6 @@
 'use strict';
 
-
-// https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DIS&apikey=YVZBFJSOMHM6J2R0
+// Request sample: https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DIS&apikey=YVZBFJSOMHM6J2R0
   const API_KEY = "YVZBFJSOMHM6J2R0";
   const symbols = ["AAPL", "AXP", "BA", "CAT", "CSCO"];
   // const symbols = ["AAPL", "AXP", "BA", "CAT", "CSCO", "CVX", "DIS", "DOW", "GS", "HD", "IBM", "INTC", "JNJ", "JPM", "KO", "MCD", "MMM", "MRK", "MSFT", "NKE", "PFE", "PG", "RTX", "TRV", "UNH", "V", "VZ", "WBA", "WMT", "XOM" ];
@@ -11,45 +10,45 @@
   // Sort when table header is clicked.
   const ths = document.getElementsByTagName('th');
   const table = document.querySelector('table');
-  const span = document.querySelector('msg');
+  let sortOrder = 1; 
 
   for (let i = 0; i < ths.length; i++) {
     ths[i].addEventListener('click', function() {
       // console.log(this.cellIndex);
       let rows = Array.prototype.slice.call(document.querySelectorAll('tbody > tr')); //Convert NodeList to array
       let col = this.cellIndex;
-      // let type = "number";
       let type = this.dataset.type;
 
       rows.sort(function(a, b) {
         if (type === "number") {
           var _a = a.children[col].textContent * 1;
           var _b = b.children[col].textContent * 1;
-          console.log("number _a is: " + _a );
-          console.log("number _b is: " + _b );
         }
         if (type === "string") {
           var _a = a.children[col].textContent.toLowerCase();
           var _b = b.children[col].textContent.toLowerCase();
-          console.log("string _a is: " + _a );
-          console.log("string _b is: " + _b );
         }
         if ( _a < _b ) {
-          return -1;
+          return -1 * sortOrder; 
         }
         if ( _a > _b ) {
-          return 1;
+          return 1 * sortOrder;
         }
         return 0;
       });
-      // console.log(rows);
+
       let tbody = document.querySelector('tbody');
       while (tbody.firstChild) {
         tbody.removeChild(tbody.firstChild);
       }
       for (let j = 0; j < rows.length; j++) {
         tbody.appendChild(rows[j]);
+      }      
+      for (let k = 0; k < ths.length; k++) {
+        ths[k].className = '';
       }
+      this.className = sortOrder === 1 ? 'asc' : 'dsc';
+      sortOrder *= -1;
     });
   }
 
@@ -57,11 +56,10 @@
   $(document).ready(function() {
     $('#get_quote').on('click', function() {
       table.classList.remove('hide');
-      console.log(span);
       $("#results").html("");
       $.each(symbols, function(i, symbol) {
         $.get(createQuoteRequest(symbol), function(data, status){
-          console.log("Symbol is: " + symbol + "\n status is: " + status)
+          // console.log("Symbol is: " + symbol + "\n status is: " + status)
           resultsLoop(data);
         });
       });
