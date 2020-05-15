@@ -1,0 +1,14 @@
+{
+  Global Quote: {
+  01. symbol: "AAPL",
+  02. open: "312.1500",
+  03. high: "315.9500",
+  04. low: "303.2100",
+  05. price: "307.6500",
+  06. volume: "49979647",
+  07. latest trading day: "2020-05-13",
+  08. previous close: "311.4100",
+  09. change: "-3.7600",
+  10. change percent: "-1.2074%"
+  }
+  }

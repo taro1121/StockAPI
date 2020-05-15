@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock API</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <header>
+    <h1>DJIA composit status</h1>
+    <button id="get_quote" class="button">GET QUOTE</button>
+    <div class="msg">
+      Click "GET QUOTE" button to get the latest data.
+    </div>
+  </header>
+  <main>
+    <table class="table hide">
+      <thead>
+        <tr>
+          <th data-type="string">Latest Trading Day</th>
+          <th data-type="string">Symbol</th>
+          <th data-type="number">Price</th>
+          <th data-type="number">Volume</th>
+          <th data-type="number">Change</th>
+          <th data-type="string">Change %</th>
+        </tr>
+      </thead>
+      <tbody id="results">
+      </tbody>
+    </table>
+  </main>
+
+
+  <footer>
+    <span>DJIA composite status is made by <a href="https://www.alphavantage.co/" target="_blank">Alphavantage API</a> &copy;2020</span>
+    <span id="footer-modify"></span>
+  </footer>
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
