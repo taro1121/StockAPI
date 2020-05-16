@@ -1,4 +1,4 @@
-# api_project
+# StockAPI Project
 
 ### HOW TO USE ###
 1. Place unzipped file anywhere (i.e. under /Documents).
@@ -9,28 +9,21 @@
 ######
 
 
+This is the repository for Shintaro's Stock API project.
 
-This is the repository for Shintaro's API project.
+Project Name: Shintaro's Stock API project.
 
-Project Name: Shintaro's Bicycle YouTube channel.
+API: Alphavantage.io API (https://www.alphavantage.co/)
+Purpose: Users who keep eyes on DJIA 30 stocks visit this site to get the latest stock quotes.
 
-API: YouTube data API
-(https://developers.google.com/youtube/v3/getting-started)
-
-Purpose: Users who love to watch <bicycle> related YouTube come to this site and browse YouTube videos organized by various criteria.
-
-Technology in use: HTML/CSS/JS/jQuery/YouTubeDataAPI/node.js
+Technology in use: HTML/CSS/JS/jQuery/AlphavantageAPI/node.js
 
 Support: Chrome (Desktop and Mobile)
 
-UI: See wireframe.HEIC file in this repository for the visual structure.
-
-Limitation: Depends on the data availability of the API.  May not support some search criteria/pagination/mobile.
-There may be some limitations for showing videos (country, language, minimum view,,,).
+Limitation: As Alphavantage allows only five requests per minutes for free user, table shows only the first 5 stock prices even when code is ready to manage any number of stock. 
 
 User scenario:
-1. By default, user can see videos (up to 100?) sorted by date.
-2. User can search videos by custom string (i.e. "Tour de France").
-3. User can see videos sort by Date/Views/Ranking/....
-4. User can have most of the functionality in mobile.
-5. Clicking video tile should open the video on new tab.
+1. By default, user sees no data in the main pane.
+2. As user clicks "GET QUOTES" button in the header, latest DJIA 30 stock prices will be rendered in table.
+3. There are six columns; latest trading day, name, price, volume, change is price, and change in %.
+4. User canclick table header to sort the data in ascending/dscending order.
